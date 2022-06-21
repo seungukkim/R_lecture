@@ -1,0 +1,46 @@
+---
+title: "day0621"
+output: html_document
+date: '2022-06-21'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+##빈도의 
+```{r}
+mpg1<-read.csv("mpg1.csv", stringsAsFactors = F)
+str(mpg1)
+```
+#1. iris 데이터세트에 있는 변수 Petal.Width의 평균, 최댓값, 최솟값을 구해보세요.
+```{r}
+mean(iris$Petal.Width)
+max(iris$Petal.Width)
+min(iris$Petal.Width)
+```
+
+#2. ggplot2 패키지에 있는 mpg 데이터세트에서 자동차 class의 자동차 빈도수와 비율을 구하세요. 비율은 백분율이며, 소수점 한자리까지 구합니다.
+```{r}
+
+library(ggplot2)
+c<-table(mpg$class)
+round(prop.table(c)*100,1)
+```
+#3. mpg에서 자동차 class에 따른 drv의 빈도와 백분율을 구합니다. 조건은 class 별로 drv의 백분율을 계산합니다. 소수점 한자리까지 구합니다.
+```{r}
+library(ggplot2)
+d<-table(mpg$class,mpg$drv)
+round(prop.table(d)*100,1)
+```
+
+#summary
+```{r}
+summary(iris)
+summary(iris$Petal.Width)
+```
+#quantile(), IQR
+```{r}
+quantile(mtcars$mpg)
+IQR(mtcars$mpg)
+```
+
